@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Đăng nhập - Phúc Nguyễn VIP</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(-45deg, #4facfe, #00f2fe, #43e97b, #38f9d7);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+
+  @keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  .login-container {
+    background: rgba(0,0,0,0.6);
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+    width: 320px;
+    text-align: center;
+  }
+
+  .login-container h2 {
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: #43e97b;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #000;
+    transition: background 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background: #38f9d7;
+  }
+
+  .error-msg {
+    color: #ff6b6b;
+    margin-top: 15px;
+    font-weight: 600;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Đăng nhập VIP Phúc Nguyễn</h2>
+  <form id="loginForm">
+    <div class="input-group">
+      <label for="username">Tên tài khoản</label>
+      <input type="text" id="username" placeholder="Nhập tài khoản" required />
+    </div>
+    <div class="input-group">
+      <label for="password">Mật khẩu</label>
+      <input type="password" id="password" placeholder="Nhập mật khẩu" required />
+    </div>
+    <input type="submit" value="Đăng nhập" />
+  </form>
+  <div class="error-msg" id="errorMsg">Tên tài khoản hoặc mật khẩu không đúng!</div>
+</div>
+
+<script>
+  const validUsername = "phucnguyen";
+  const validPassword = "123456";
+
+  const form = document.getElementById("loginForm");
+  const errorMsg = document.getElementById("errorMsg");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+
+    if(username === validUsername && password === validPassword){
+      errorMsg.style.display = "none";
+      // Đăng nhập thành công, chuyển trang:
+      window.location.href = "phucnguyen.html";
+    } else {
+      errorMsg.style.display = "block";
+    }
+  });
+</script>
+
+</body>
+</html>
